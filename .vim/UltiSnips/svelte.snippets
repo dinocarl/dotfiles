@@ -1,0 +1,29 @@
+snippet dlog "reactive console.log(...)" b
+$: console.log($1);$0
+endsnippet
+
+snippet dd "reactive statement" b
+$: $1;$0
+endsnippet
+
+snippet if "create an if statement" i
+{#if ${1:predicate}}
+	$2
+{/if}$0
+endsnippet
+
+snippet els "create an else clause" i
+{:else}
+	$0
+endsnippet
+
+snippet elsif "create an else-if statement" i
+{:else if ${1:predicate}}
+	$0
+endsnippet
+
+snippet each "create an each loop" i
+{#each ${1:list} as ${2:item}}
+	$3{$2}$4
+{/each}$0
+endsnippet

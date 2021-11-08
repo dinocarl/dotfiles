@@ -1,0 +1,79 @@
+font:
+  normal:
+    family: InconsolataLGC Nerd Font Mono
+    style: Medium
+  bold:
+    family: InconsolataLGC Nerd Font Mono
+    style: Bold
+  italic:
+    family: InconsolataLGC Nerd Font Mono
+    style: Italic
+  bold_italic:
+    family: InconsolataLGC Nerd Font Mono
+    style: BoldItalic
+  size: 14
+  offset:
+    x: 0
+    y: -3
+  glyph_offset:
+    x: 0
+    y: 0
+key_bindings:
+  - key: H
+    mods: Command
+    command:
+      program: osascript
+      args:
+        - -e
+        - tell application "System Events" to tell process "Alacritty" to set
+          visible to false
+  - key: T
+    mods: Command
+    command:
+      program: /usr/local/bin/tmux
+      args:
+        - new-window
+  - key: W
+    mods: Command
+    command:
+      program: /usr/local/bin/tmux
+      args:
+        - kill-pane
+  - key: Right
+    mods: Command|Shift
+    chars: "\x01\x6e"
+  - key: Period
+    mods: Command
+    chars: "\x03"
+colors:
+  cursor:
+    text: "#fefff2"
+    cursor: "#f0cc09"
+  selection:
+    text: "#b5b5b5"
+    background: "#18354f"
+  primary:
+    background: "#132738"
+    foreground: "#ffffff"
+  normal:
+    black: "#000000"
+    red: "#ff0000"
+    green: "#38de21"
+    yellow: "#ffe50a"
+    blue: "#1460d2"
+    magenta: "#ff005d"
+    cyan: "#00bbbb"
+    white: "#bbbbbb"
+  bright:
+    black: "#555555"
+    red: "#f40e17"
+    green: "#3bd01d"
+    yellow: "#edc809"
+    blue: "#5555ff"
+    magenta: "#ff55ff"
+    cyan: "#6ae3fa"
+    white: "#ffffff"
+cursor:
+  style:
+    blinking: Always
+  blink_interval: 600

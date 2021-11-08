@@ -1,0 +1,99 @@
+###########################################################################
+#                            Markdown Snippets                            #
+###########################################################################
+
+#############
+#  Headers  #
+#############
+
+snippet h1 "Header h1" b
+# ${1:Header name}
+
+$0
+endsnippet
+
+snippet h2 "Header h2" b
+## ${1:Header name}
+
+$0
+endsnippet
+
+snippet h3 "Header h3" b
+### ${1:Header name}
+
+$0
+endsnippet
+
+snippet h4 "Header h4" b
+#### ${1:Header name}
+
+$0
+endsnippet
+
+snippet h5 "Header h5" b
+##### ${1:Header name}
+
+$0
+endsnippet
+
+snippet h6 "Header h6" b
+###### ${1:Header name}
+
+$0
+endsnippet
+
+
+##############
+#  Emphasis  #
+##############
+
+snippet * "Italic"
+*${1:${VISUAL:Text}}*$0
+endsnippet
+
+snippet _ "Strong"
+__${1:${VISUAL:Text}}__$0
+endsnippet
+
+snippet *_ "Italic and Strong"
+***${1:${VISUAL:Text}}***$0
+endsnippet
+
+
+###########
+#  Lists  #
+###########
+
+snippet ol "Ordered List"
+1. ${1}
+2. ${2}
+3. ${3}
+4. ${4}
+$0
+endsnippet
+
+snippet ul "Unordered List"
+* ${1}
+* ${2}
+* ${3}
+* ${4}
+$0
+endsnippet
+
+
+######################
+#  Definition Lists  #
+######################
+
+snippet dl "Definition List" !b
+${1:Word 1}
+: ${2:Definition}
+${3:Word 2}
+: ${4:Definition}
+${5:Word 3}
+: ${6:Definition}
+${7:Word 4}
+: ${8:Definition}
+
+$0
+endsnippet

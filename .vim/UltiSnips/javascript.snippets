@@ -1,0 +1,37 @@
+snippet log "console.log(...)" b
+console.log($1);$0
+endsnippet
+
+snippet tg "generic JSX tag" i
+<$1$2>$3</$1>$0
+endsnippet
+
+snippet cl "Create a function call" i
+$1($2)$0
+endsnippet
+
+snippet imp "Create an import" i
+import $1 from '$2';$0
+endsnippet
+
+snippet impd "Create a destructured import" i
+import {
+  $1
+} from '$2';$0
+endsnippet
+
+snippet curry "Create a curried function" i
+curry(($1) => $2);$0
+endsnippet
+
+snippet cn "Create an constant" i
+const $1 = $2;$0
+endsnippet
+
+snippet lt "Create a let" i
+let $1 = $2;$0
+endsnippet
+
+snippet ar "Create an arrow function" i
+($1) => $2$0
+endsnippet

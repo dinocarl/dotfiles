@@ -1,0 +1,9 @@
+[user]
+	name = Carl Albrecht-Buehler
+	email = 83282+dinocarl@users.noreply.github.com
+[alias]
+	hist = log --pretty=format:\"%C(yellow)%h %Creset%ad%Cred%d %Creset%s%Cblue [%an]\" --date=short --decorate --graph --all
+  ac = commit --amend --no-edit
+  aac = commit -a --amend --no-edit
+[init]
+	defaultBranch = main
