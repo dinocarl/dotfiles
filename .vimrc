@@ -1,79 +1,57 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 set ttimeout
 set ttimeoutlen=50
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" set the runtime path to include vim-plug and initialize
+call plug#begin('~/.vim/plugged')
 
 " NERDTree
-Plugin 'preservim/nerdtree'
+Plug 'preservim/nerdtree'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" "Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Install L9 and avoid a Naming conflict if you've already installed a
-" different version somewhere else.
-" Plugin 'ascenator/L9', {'name': 'newL9'}
+" git
+Plug 'tpope/vim-fugitive'
 
 " Intelligently pair common character sets
-" Plugin 'jiangmiao/auto-pairs'
+" Plug 'jiangmiao/auto-pairs'
 
 " Shortcuts to split and join blocks of code
-Plugin 'AndrewRadev/splitjoin.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 
 " Fade out non-focused splits
-Plugin 'TaDaa/vimade'
+Plug 'TaDaa/vimade'
 
-Plugin 'JulesWang/css.vim'
-Plugin 'cakebaker/scss-syntax.vim'
+Plug 'JulesWang/css.vim'
+Plug 'cakebaker/scss-syntax.vim'
 
 " JavaScript
-Plugin 'pangloss/vim-javascript'
-Plugin 'isRuslan/vim-es6'
+Plug 'pangloss/vim-javascript'
+Plug 'isRuslan/vim-es6'
 
 " For TypeScript
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 
 " Svelte
-Plugin 'evanleck/vim-svelte'
+Plug 'evanleck/vim-svelte'
 
 " UltiSnips
 " Track the engine.
-Plugin 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 
 " Snippets are separated from the engine. Add this if you want them:
-Plugin 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
-" If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
-" Enable airline plugin
-Plugin 'vim-airline/vim-airline'
+" Enable airline Plug
+Plug 'vim-airline/vim-airline'
 
 " Enable devicons
-Plugin 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 
 " Airline Options
 " Enable the list of buffers
@@ -88,76 +66,61 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#ignore_bufadd_pat = 'gundo|undotree|vimfiler|tagbar|nerd_tree|startify'
 
 " Elm
-Plugin 'elmcast/elm-vim'
+Plug 'elmcast/elm-vim'
 
 " for eslint
-Plugin 'w0rp/ale'
-Plugin 'editorconfig/editorconfig-vim'
+Plug 'w0rp/ale'
+" Plug 'editorconfig/editorconfig-vim'
 
 " cobalt2 colorscheme
-Plugin 'gertjanreynaert/cobalt2-vim-theme'
+Plug 'gertjanreynaert/cobalt2-vim-theme'
 " blackboard colorscheme
-Plugin 'wmvanvliet/vim-blackboard'
-Plugin 'jonathanfilip/vim-lucius'
-
+Plug 'wmvanvliet/vim-blackboard'
 
 " Markdown previewer
-" After plugin install, make sure to
-" cd ~/.vim/bundle/markdown-preview.nvim/app && yarn
-Plugin 'iamcco/markdown-preview.nvim'
+" After Plug install, make sure to
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " vim surround
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 
 " comments
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 
-" Session management
-Plugin 'tpope/vim-obsession'
-Plugin 'dhruvasagar/vim-prosession'
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
 let g:sessions_dir = '~/.vim/sessions'
 let g:prosession_dir = '~/.vim/sessions'
 
 " for Clojure dev
-Plugin 'tpope/vim-fireplace'
+Plug 'tpope/vim-fireplace'
 " Follow installation instructions here
 " https://github.com/venantius/vim-cljfmt#installation
-Plugin 'venantius/vim-cljfmt'
-" Plugin 'guns/vim-sexp'
-" Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'eraserhd/parinfer-rust'
+Plug 'venantius/vim-cljfmt'
+" Plug 'guns/vim-sexp'
+" Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'eraserhd/parinfer-rust'
 
 " Code Formatting
-Plugin 'prettier/vim-prettier'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production', 'branch': 'release/0.x' }
 " Change background colors of color values to reflect the value in code
-Plugin 'ap/vim-css-color'
-" Figure out whitespace for the file
-Plugin 'tpope/vim-sleuth'
+Plug 'ap/vim-css-color'
+Plug 'tpope/vim-sleuth'
 " Allow easy conversions between cases, including snake, kebab, camel, etc
-Plugin 'tpope/vim-abolish'
+Plug 'tpope/vim-abolish'
 
 " Fuzzy Find
-set rtp+=/usr/local/opt/fzf
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 
 filetype plugin indent on    " required
+set smartindent
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-" ---
 
-execute pathogen#infect()
 " after a re-source, fix syntax matching issues (concealing brackets):
 if exists('g:loaded_webdevicons')
    call webdevicons#refresh()
@@ -169,7 +132,11 @@ syntax on
 " filetype plugin indent on
 set splitright
 set splitbelow
-set diffopt+=vertical
+" set diffopt+=vertical
+if &diff
+    set diffopt-=internal
+    set diffopt+=vertical
+endif
 set showcmd
 " show existing tab with 2 spaces width
 set tabstop=2
@@ -191,8 +158,9 @@ set number
 "   autocmd!
 "   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 "   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-  autocmd BufEnter NERD_* set norelativenumber
+"   autocmd BufEnter NERD_* set norelativenumber
 " augroup END
+autocmd BufEnter NERD_* set norelativenumber
 
 set encoding=UTF-8
 
@@ -262,6 +230,7 @@ nnoremap <silent> <leader>sr vi}:sort<cr>
 " Look in the current directory
 set path+=**
 " Find files using fzf
+set rtp+=~/.fzf
 nnoremap <leader>P :FZF <cr>
 " Find astring in files in the path using fzf
 nnoremap <leader>F :Rg <cr>
@@ -275,7 +244,7 @@ nnoremap <leader>E :grep -R --exclude-dir={node_modules,build,build_react,dist,c
 
 " search and replace
 " simple substition command
-noremap <leader>r :%s///g<Left><Left><Left>
+nnoremap <leader>r :%s///g<Left><Left><Left>
 " subsitute current word
 :nnoremap <Leader>R :%s/\<<C-r><C-w>\>//g<Left><Left>
 
@@ -295,6 +264,7 @@ nnoremap <silent> <leader>t :vert term<cr><c-w>:exe "vertical resize " . (winwid
 
 " Terminal Key commands
 " open a terminal window in a horizontal split from a terminal window
+tnoremap <silent> <leader>t :term<cr>
 tnoremap <silent> x<tab> exit<cr>
 tnoremap <silent> n<tab> npm run dev<cr>
 tnoremap <silent> r<tab> npm run dev:react<cr>
@@ -312,17 +282,14 @@ noremap <silent> <leader>q :qa<cr>
 " Activate markdown preview
 noremap <silent> <C-p> :MarkdownPreview<cr>
 
-" replay q macro with Q
-nnoremap Q @q
-
 " Folding
 set foldmethod=syntax
 set foldlevelstart=99
 " Folding in JS is a little wonky; use `indent` instead of `syntax`
 autocmd BufEnter *.js,*.jsx,*.scss set foldmethod=indent
 
-" Sometimes syntax highlighting goes,
-" create a shorttcut that forces a redraw
+" Sometimes syntax highlighting goes, so create a shorttcut that forces a
+" redraw
 nnoremap <silent> <leader>C :syntax sync fromstart<cr>
 
 " add a marker to know where the
@@ -332,8 +299,6 @@ autocmd BufEnter *.md,*.markdown set colorcolumn=80
 autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown setlocal spell
 " and enable all words for autocomplete
 autocmd BufRead,BufNewFile,BufEnter *.md,*.markdown  set complete+=kspell
-" color an extra bash file as bash
-au BufReadPost *.bash_extra set syntax=bash
 
 " For use with control p
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -358,17 +323,8 @@ function! ParinferToggle()
     endif
 endfunction
 
-" toggle colorschemes
-nnoremap <Leader>b :call ToggleColors()<cr>
-function ToggleColors()
-    if (g:colors_name == "cobalt2")
-        colorscheme blackboard
-    else
-        colorscheme cobalt2
-    endif
-endfunction
-
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+au BufNewFile,BufFilePre,BufRead *.prima set filetype=clojure
 " au BufRead *.html set filetype=htmlm4
 
 " Insert shortcuts
@@ -382,11 +338,6 @@ au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 :iab teh the
 :iab ahve have
 :iab tempalte template
-
-" Special character sequence to insert 2 carriage returns
-" and place the cursor in insert mode at the end of the first
-inoremap \; <Enter><Esc>O
-nnoremap <leader>; <Enter><Esc>O
 
 " Replacing with auto-pairs
 " ino " ""<left>
@@ -419,21 +370,26 @@ let g:ale_echo_msg_warning_str = "\uf071"
 let g:ale_echo_msg_format = ' %severity%  %linter% %severity%  %s'
 let g:ale_list_window_size = 5
 
+" turn off indenting style from the svelte plugin for svelte files
+let g:svelte_indent_script = 0
+let g:svelte_indent_style = 0
+
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-nmap <silent> <leader>af :ALEFix<cr>
+nmap <silent> <leader>af :ALEFix <cr>
 
 " Toggle the NERDTree window
 nnoremap <leader>x :NERDTreeToggle<cr>
-" Find the current file in NERDTree
-nnoremap <leader>X :NERDTreeFind<cr>zz^
-" Perform a find in NERDTree
-" nnoremap <leader>r :%Eval<cr>
+" Find the current file in NERDTree, and move the cursor to a consistent spot
+nnoremap <leader>X :NERDTreeFind<cr> zz ^ V <Esc>
 
 " Add empty line(s) below cursor
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 " Add empty line(s) above cursor
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
-" Toggle relative line numbers
-nnoremap <leader>N :set relativenumber!<cr>
+
+function! RunInTmux(cmd)
+  :execute ":silent !tmux splitw -h '".a:cmd."; read; tmux select-pane -L'"
+endfunction
+au FileType javascript nnoremap <leader>T :call RunInTmux('node %')<CR>

@@ -1,5 +1,8 @@
 PATH="/usr/local/bin:$(getconf PATH)"
 # Above line is necessary as an OSX workaround
+source ~/.bashrc  # get my Bash aliases
+
+export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
@@ -8,10 +11,6 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
 
-export PATH="$HOME/.cargo/bin:$PATH"
-export PATH="$HOME/Sites/kubeclj:$PATH"
-export PATH="$HOME/Sites/sdf/bin:$PATH"
-export PATH="$HOME/Sites/sh/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -111,14 +110,23 @@ frb() {
 }
 
 # vim alias
-alias v="vim"
+# make sure to use the homebrew version to keep it up-to-date
+alias v=/usr/local/bin/vim
+alias vi=/usr/local/bin/vim
+alias vim=/usr/local/bin/vim
+
 alias x="exit"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 eval "$(starship init bash)"
-export PATH="/Users/calbrechtbuehler/Sites/sh/bin:$PATH"
 
 if [ -f ~/.bash_extra ];
 then source ~/.bash_extra;
 fi
+
+export PATH="/Users/calbrechtbuehler/Sites/sh/bin:$PATH"
+export PATH="/Users/calbrechtbuehler/bin:$PATH"
+. "$HOME/.cargo/env"
+
+complete -C /usr/local/bin/terraform terraform
