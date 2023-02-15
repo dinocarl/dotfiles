@@ -1,3 +1,7 @@
+# PS4='+ $EPOCHREALTIME\011 '
+# exec 3>&2 2>/tmp/bashstart.$$.log
+# set -x
+
 PATH="/usr/local/bin:$(getconf PATH)"
 # Above line is necessary as an OSX workaround
 source ~/.bashrc  # get my Bash aliases
@@ -28,7 +32,7 @@ alias vlt="vault login -method=ldap username=calbrechtbuehler"
 alias g="git"
 alias gs="git status"
 alias ga="git add"
-alias gf="git fetch -p"
+alias gf="git fetch --all --prune --tags"
 alias ghs="git hist"
 alias grb="git rebase"
 alias gco="git checkout"
@@ -49,7 +53,7 @@ alias dotf="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias d="dotf"
 alias ds='dotf status'
 alias da="dotf add"
-alias df="dotf fetch -p"
+alias df="dotf fetch --all --prune --tags"
 alias dhs="dotf hist"
 alias drb="dotf rebase"
 alias dco="dotf checkout"
@@ -117,16 +121,27 @@ alias vim=/usr/local/bin/vim
 
 alias x="exit"
 
+alias srcenv="source .env"
+alias genpw="LC_ALL=C tr -dc </dev/urandom "[:graph:]" | head -c 16 | tee tmp | pbcopy"
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 eval "$(starship init bash)"
 
-if [ -f ~/.bash_extra ];
-then source ~/.bash_extra;
-fi
+# if [ -f ~/.bash_extra ];
+# then source ~/.bash_extra;
+# fi
+
+# echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+# echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+# echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+export PATH="$HOME/.local/bin:$PATH"
 
 export PATH="/Users/calbrechtbuehler/Sites/sh/bin:$PATH"
 export PATH="/Users/calbrechtbuehler/bin:$PATH"
 . "$HOME/.cargo/env"
 
 complete -C /usr/local/bin/terraform terraform
+
+# set +x
+# exec 2>&3 3>&-

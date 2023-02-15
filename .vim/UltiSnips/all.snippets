@@ -2,12 +2,28 @@ snippet ( "Apply parens" i
 ($1)$0
 endsnippet
 
+snippet "\([\s]" "Apply parens with interior spaces" r
+( $1 )$0
+endsnippet
+
+snippet "\(\;" "Apply parens with an interior new line" r
+(
+	$1
+)$0
+endsnippet
+
 snippet { "Apply braces" i
 {$1}$0
 endsnippet
 
 snippet "\{[\s]" "Apply braces with interior spaces" r
 { $1 }$0
+endsnippet
+
+snippet "\{\;" "Apply braces with an interior new line" r
+{
+	$1
+}$0
 endsnippet
 
 snippet [ "Apply brackets" i
@@ -18,11 +34,11 @@ snippet "\[[\s]" "Apply brackets with interior spaces" r
 [ $1 ]$0
 endsnippet
 
-# snippet "\[[\n][[\s]+|[\t]+]" "Apply brackets with interior new lines" r
-# [
-# 	$1
-# ]$0
-# endsnippet
+snippet "\[\;" "Apply brackets with an interior new line" r
+[
+	$1
+]$0
+endsnippet
 
 snippet < "Apply angle brackets" i
 <$1>$0
@@ -39,4 +55,3 @@ endsnippet
 snippet ` "Apply backticks" i
 \`$1\`$0
 endsnippet
-

@@ -1,15 +1,20 @@
+window:
+  startup_mode: Maximized
+  # opacity: 0.8
+env:
+  TERM: xterm-256color
 font:
   normal:
-    family: InconsolataLGC Nerd Font Mono
+    family: InconsolataLGC Nerd Font
     style: Medium
   bold:
-    family: InconsolataLGC Nerd Font Mono
+    family: InconsolataLGC Nerd Font
     style: Bold
   italic:
-    family: InconsolataLGC Nerd Font Mono
+    family: InconsolataLGC Nerd Font
     style: Italic
   bold_italic:
-    family: InconsolataLGC Nerd Font Mono
+    family: InconsolataLGC Nerd Font
     style: BoldItalic
   size: 14
   offset:
@@ -45,34 +50,44 @@ key_bindings:
   - key: Period
     mods: Command
     chars: "\x03"
+# falcon colorscheme for alacritty
+# by fenetikm, https://github.com/fenetikm/falcon
 colors:
-  cursor:
-    text: "#fefff2"
-    cursor: "#f0cc09"
-  selection:
-    text: "#b5b5b5"
-    background: "#18354f"
+  # Default colors
   primary:
-    background: "#132738"
-    foreground: "#ffffff"
+    background: '0x020221'
+    foreground: '0xb4b4b9'
+
+  # # Colors the cursor will use if `custom_cursor_colors` is true
+  cursor:
+    text: '0x020221'
+    cursor: '0xffe8c0'
+
+#   # Normal colors
   normal:
-    black: "#000000"
-    red: "#ff0000"
-    green: "#38de21"
-    yellow: "#ffe50a"
-    blue: "#1460d2"
-    magenta: "#ff005d"
-    cyan: "#00bbbb"
-    white: "#bbbbbb"
+    black:   '0x000004'
+    red:     '0xff3600'
+    green:   '0x859933'
+    yellow:  '0xffc552'
+    blue:    '0x635196'
+    magenta: '0xff761a'
+    cyan:    '0x34bfa4'
+    white:   '0xb4b4b9'
+
+#   # Bright colors
   bright:
-    black: "#555555"
-    red: "#f40e17"
-    green: "#3bd01d"
-    yellow: "#edc809"
-    blue: "#5555ff"
-    magenta: "#ff55ff"
-    cyan: "#6ae3fa"
-    white: "#ffffff"
+    black:   '0x020221'
+    red:     '0xff8e78'
+    green:   '0xb2bc55'
+    yellow:  '0xffd392'
+    blue:    '0x99a4bc'
+    magenta: '0xffb07b'
+    cyan:    '0x8bccbf'
+    white:   '0xf8f8ff'
+
+# Use custom cursor colors. If true, display the cursor in the cursor.foreground
+# and cursor.background colors, otherwise invert the colors of the cursor.
+custom_cursor_colors: true
 cursor:
   style:
     blinking: Always

@@ -15,9 +15,7 @@ import $1 from '$2';$0
 endsnippet
 
 snippet impd "Create a destructured import" i
-import {
-  $1
-} from '$2';$0
+import { $1 } from '$2';$0
 endsnippet
 
 snippet curry "Create a curried function" i
@@ -34,4 +32,20 @@ endsnippet
 
 snippet ar "Create an arrow function" i
 ($1) => $2$0
+endsnippet
+
+snippet or "Create double pipes for 'or'" i
+|| $0
+endsnippet
+
+snippet ora "Create a default value of an empty array" i
+|| [$1]$0
+endsnippet
+
+snippet oro "Create a default value of an empty object" i
+|| {$1}$0
+endsnippet
+
+snippet ors "Create a default value of an empty string" i
+|| '$1'$0
 endsnippet

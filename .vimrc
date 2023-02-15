@@ -88,7 +88,7 @@ Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --producti
 " Shortcuts to split and join blocks of code
 Plug 'AndrewRadev/splitjoin.vim'
 " Fade out non-focused splits
-Plug 'TaDaa/vimade'
+" Plug 'TaDaa/vimade'
 " Plug 'editorconfig/editorconfig-vim'
 " UltiSnips
 Plug 'SirVer/ultisnips'
@@ -96,8 +96,14 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 " colorschemes
-Plug 'gertjanreynaert/cobalt2-vim-theme'
+" Plug 'gertjanreynaert/cobalt2-vim-theme'
+" Plug 'GlennLeo/cobalt2'
+" Plug 'jarodl/cobalt.vim'
+Plug 'dterei/VimCobaltColourScheme'
 Plug 'wmvanvliet/vim-blackboard'
+Plug 'fenetikm/falcon'
+Plug 'Zabanaa/neuromancer.vim'
+Plug 'haishanh/night-owl.vim'
 
 " for Clojure dev
 Plug 'tpope/vim-fireplace'
@@ -121,7 +127,15 @@ Plug 'junegunn/fzf.vim'
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 
-colorscheme cobalt2
+if exists('+termguicolors')
+  let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
+
+colorscheme night_owl2
+
+:hi SpellBad cterm=underline ctermfg=red ctermbg=NONE
 
 let mapleader = ' '
 
@@ -140,6 +154,7 @@ if exists('g:loaded_webdevicons')
 autocmd BufEnter NERD_* set norelativenumber
 " Folding in JS is a little wonky; use `indent` instead of `syntax`
 autocmd BufEnter *.js,*.jsx,*.scss set foldmethod=indent
+autocmd BufEnter *.py set foldmethod=indent
 " add a marker to know where the
 " 80th character is for markdown files
 autocmd BufEnter *.md,*.markdown set colorcolumn=80
@@ -223,9 +238,10 @@ nmap <leader>w :<c-u>bn <bar> bd #<cr>
 
 " Close all Buffers except the current one
 nmap <leader>W :%bd <bar> e# <cr>
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <C-k> <Plug>(ale_previous_wrap) zz
+nmap <silent> <C-j> <Plug>(ale_next_wrap) zz
 nmap <silent> <leader>af :ALEFix <cr>
+highlight ALEWarning ctermbg=none cterm=underline gui=italic
 
 " Toggle the NERDTree window
 nnoremap <leader>x :NERDTreeToggle<cr>
@@ -237,6 +253,18 @@ nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1
 " Add empty line(s) above cursor
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
+inoremap <C-BS> <C-O>diw
+noremap <C-BS> diw
+
+noremap <silent> <leader>c ciw
+noremap <silent> <leader>ae :e!<cr>
+
+nmap <silent> <leader>fr "+yiw :Rg<cr>
+nmap <silent> <leader>b :Buffers<cr>
+nmap G Gzz
+
+" Replay q macro with Q
+nmap Q @q
 
 " Close NERDTree when it opens a file
 " let NERDTreeQuitOnOpen = 1
@@ -270,13 +298,19 @@ au BufNewFile,BufFilePre,BufRead *.prima set filetype=clojure
 :iab tempalte template
 
 " Replacing with auto-pairs
-" ino " ""<left>
-" ino ' ''<left>
-" ino ` ``<left>
-" ino ( ()<left>
-" ino [ []<left>
-" ino { {}<left>
-" ino < <><left>
+" ino "<tab> ""<left>
+" ino '<tab> ''<left>
+" ino `<tab> ``<left>
+" ino (<tab> ()<left>
+" ino [<tab> []<left>
+" ino {<tab> {}<left>
+" ino <<tab> <><left>
+" ino (<space><tab> (  )<left><left>
+" ino [<space><tab> [  ]<left><left>
+" ino {<space><tab> {  }<left><left>
+" ino (<cr><tab> (<cr><cr>)<up><tab><C-o>$
+" ino [<cr><tab> [<cr><cr>]<up><tab><C-o>$
+" ino {<cr><tab> {<cr><cr>}<up><tab><C-o>$
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -304,6 +338,11 @@ let g:ale_echo_msg_error_str = "\uf05e"
 let g:ale_echo_msg_warning_str = "\uf071"
 let g:ale_echo_msg_format = ' %severity%  %linter% %severity%  %s'
 let g:ale_list_window_size = 5
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['eslint'],
+\   'python': ['autopep8'],
+\}
 " turn off indenting style from the svelte plugin for svelte files
 let g:svelte_indent_script = 0
 let g:svelte_indent_style = 0
