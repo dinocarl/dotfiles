@@ -133,7 +133,7 @@ if exists('+termguicolors')
   set termguicolors
 endif
 
-colorscheme night_owl2
+colorscheme night-owl
 
 :hi SpellBad cterm=underline ctermfg=red ctermbg=NONE
 

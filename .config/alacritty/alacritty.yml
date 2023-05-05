@@ -1,20 +1,24 @@
 window:
   startup_mode: Maximized
   # opacity: 0.8
+shell:
+  program: /bin/bash
+  args:
+    - --login
 env:
   TERM: xterm-256color
 font:
   normal:
-    family: InconsolataLGC Nerd Font
-    style: Medium
+    family: Inconsolata LGC Nerd Font
+    style: Regular
   bold:
-    family: InconsolataLGC Nerd Font
+    family: Inconsolata LGC Nerd Font
     style: Bold
   italic:
-    family: InconsolataLGC Nerd Font
+    family: Inconsolata LGC Nerd Font
     style: Italic
   bold_italic:
-    family: InconsolataLGC Nerd Font
+    family: Inconsolata LGC Nerd Font
     style: BoldItalic
   size: 14
   offset:
@@ -35,13 +39,13 @@ key_bindings:
   - key: T
     mods: Command
     command:
-      program: /usr/local/bin/tmux
+      program: /opt/homebrew/bin/tmux
       args:
         - new-window
   - key: W
     mods: Command
     command:
-      program: /usr/local/bin/tmux
+      program: /opt/homebrew/bin/tmux
       args:
         - kill-pane
   - key: Right

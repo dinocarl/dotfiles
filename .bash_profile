@@ -97,7 +97,7 @@ fpb() {
   git push origin $(git branch | fzf)
 }
 
-# frb - Rebases a local branch with fussy found branch
+# frb - Rebases a local branch with fuzzy found branch
 frb() {
   local tags branches target
   branches=$(
@@ -115,9 +115,9 @@ frb() {
 
 # vim alias
 # make sure to use the homebrew version to keep it up-to-date
-alias v=/usr/local/bin/vim
-alias vi=/usr/local/bin/vim
-alias vim=/usr/local/bin/vim
+alias   v=/opt/homebrew/bin/vim
+alias  vi=/opt/homebrew/bin/vim
+alias vim=/opt/homebrew/bin/vim
 
 alias x="exit"
 
@@ -136,7 +136,7 @@ eval "$(starship init bash)"
 # echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
 # echo 'eval "$(pyenv init -)"' >> ~/.bashrc
 export PATH="$HOME/.local/bin:$PATH"
-
+export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/Users/calbrechtbuehler/Sites/sh/bin:$PATH"
 export PATH="/Users/calbrechtbuehler/bin:$PATH"
 . "$HOME/.cargo/env"
