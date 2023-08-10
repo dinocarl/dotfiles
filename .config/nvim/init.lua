@@ -1,5 +1,2 @@
-require("personalization.options")
-require("personalization.plugins")
-require("personalization.remap")
-require("personalization.colorscheme")
-require("plugins.telescope")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")

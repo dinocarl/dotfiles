@@ -120,6 +120,8 @@ Plug 'ap/vim-css-color'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-sleuth'
 
+Plug 'dhruvasagar/vim-table-mode'
+
 " Fuzzy Find
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -346,6 +348,15 @@ let g:ale_fixers = {
 " turn off indenting style from the svelte plugin for svelte files
 let g:svelte_indent_script = 0
 let g:svelte_indent_style = 0
+let g:ale_linter_aliases = {
+\   'svelte': ['javascript']
+\}
+let g:ale_linters = {
+\   'svelte': ['eslint']
+\}
+let g:ale_fixers = {
+\   'svelte': ['eslint']
+\}
 
 function! RunInTmux(cmd)
   :execute ":silent !tmux splitw -h '".a:cmd."; read; tmux select-pane -L'"
